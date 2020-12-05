@@ -15,7 +15,7 @@ export class CompactService {
       return { success: false, error: e };
     }
   }
-  public async createUser(data, callback) {
+  public async createUser(data) {
     try {
       return await Parse.Cloud.run("authentication-compact_createUser", { username: data.username, name: data.name });
     } catch (e) {
@@ -33,7 +33,7 @@ export class CompactService {
       return {success:false, error:e};
     }
   }
-  public async resetPassword(username, callback){
+  public async resetPassword(username){
     try{
       return await Parse.Cloud.run("authentication-compact_resetUserPassword", { username:username});
     }catch(e){
